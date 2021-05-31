@@ -9,26 +9,9 @@ import { Button, Wrapper, SortWrapper, RangeWrapper } from './header.style';
 
 
 
-export default function Header() {
+export default function Header({rangeChange}) {
 
-    const [size, setSize] = useState(5);
-    const [arr, setArr] = useState([]);
-
-    useEffect(() => {
-        updateList();
-    }, [size])
-
-    const updateList = () => {
-        console.log("updating list");
-        const randomArr = Array.from({ length: size }, () => Math.floor(Math.random() * 100));
-        console.log("App -> size", size);
-        console.log("updaateList -> randomArr", randomArr);
-        setArr(randomArr);
-    }
-  
-    const rangeChange = (event, range) => {
-        setSize(range);
-    };
+    
 
     const muiTheme = createMuiTheme({
         overrides:{
@@ -62,10 +45,9 @@ export default function Header() {
                 }}>Change Array Size</Button>
                 <ThemeProvider theme={muiTheme}>
                     <Slider
-                        size={typeof size === "number" ? setSize : 0}
                         onChange={rangeChange}
                         min={5}
-                        max={1000}
+                        max={500}
                         aria-labelledby="discrete-slider-always" />
                 </ThemeProvider>
             </RangeWrapper>

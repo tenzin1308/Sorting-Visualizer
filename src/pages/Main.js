@@ -14,7 +14,7 @@ export default function Main({data}) {
 const Bar = styled.div`
     width: 3%;
     height: ${(props) => props.height};
-    background-color: ${(props) => props.color || '#000'};
+    background-color: ${(props) => props.color || '#04A9E0'};
     margin-right: 2px;
 `;
 
