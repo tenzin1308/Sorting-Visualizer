@@ -38,7 +38,7 @@ export default function Header({rangeChange}) {
             </Button>
             
             <RangeWrapper>
-                <Button style={{
+                <Button disable style={{
                     paddingRight: '50px',
                     whiteSpace: 'nowrap',
                     margin: '0px',
