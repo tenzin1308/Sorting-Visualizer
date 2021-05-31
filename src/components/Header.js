@@ -1,27 +1,33 @@
-import React, { useState }  from 'react'
-
-import { useModal } from 'react-modal-hook';
+import React, { useEffect, useState }  from 'react'
 
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import Slider from '@material-ui/core/Slider';
-import Typography from '@material-ui/core/Typography';
 
 import { Button, Wrapper, SortWrapper, RangeWrapper } from './header.style';
-import RangeModel from './RangeModel';
+
 
 
 
 export default function Header() {
 
-    const [value, setValue] = useState(5);
+    const [size, setSize] = useState(5);
+    const [arr, setArr] = useState([]);
 
-    const [showModal, hideModal] = useModal(() => (
-        <RangeModel hideModal={hideModal} />
-    ));
+    useEffect(() => {
+        updateList();
+    }, [size])
 
-    const handleSliderChange = (event, newValue) => {
-        setValue(newValue);
+    const updateList = () => {
+        console.log("updating list");
+        const randomArr = Array.from({ length: size }, () => Math.floor(Math.random() * 100));
+        console.log("App -> size", size);
+        console.log("updaateList -> randomArr", randomArr);
+        setArr(randomArr);
+    }
+  
+    const rangeChange = (event, range) => {
+        setSize(range);
     };
 
     const muiTheme = createMuiTheme({
@@ -47,16 +53,17 @@ export default function Header() {
             <Button onClick={() => console.log("Clicked")}>
                 Generate New Array
             </Button>
-            {/* <Button onClick={showModal}>
-                Select your range
-            </Button> */}
-
+            
             <RangeWrapper>
-                
+                <Button style={{
+                    paddingRight: '50px',
+                    whiteSpace: 'nowrap',
+                    margin: '0px',
+                }}>Change Array Size</Button>
                 <ThemeProvider theme={muiTheme}>
                     <Slider
-                        value={typeof value === "number" ? value : 0}
-                        onChange={handleSliderChange}
+                        size={typeof size === "number" ? setSize : 0}
+                        onChange={rangeChange}
                         min={5}
                         max={1000}
                         aria-labelledby="discrete-slider-always" />
@@ -79,4 +86,3 @@ export default function Header() {
         </Wrapper>
     )
 }
- 

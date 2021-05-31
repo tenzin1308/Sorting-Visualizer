@@ -7,7 +7,6 @@ export const Button = styled.p`
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     line-height: 30px;
-
     &:hover{
         color: #F2CA80;
     }
@@ -35,7 +34,9 @@ export const SortWrapper = styled.div`
 `;
 
 export const RangeWrapper = styled.div`
-    width: 300px;
+    display: flex;
+    width: 350px;
     align-contain: center;
     justify-content: space-evenly;
+    padding-top: 15px;
 `;
