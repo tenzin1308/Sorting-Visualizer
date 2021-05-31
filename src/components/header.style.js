@@ -13,7 +13,7 @@ export const Button = styled.p`
     }
 `;
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-contain: center;
@@ -32,4 +32,10 @@ export const SortWrapper = styled.div`
     align-contain: center;
     justify-content: space-evenly;
     
+`;
+
+export const RangeWrapper = styled.div`
+    width: 300px;
+    align-contain: center;
+    justify-content: space-evenly;
 `;
