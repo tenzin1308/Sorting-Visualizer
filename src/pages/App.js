@@ -12,15 +12,15 @@ function App() {
     const [arr, setArr] = useState([]);
 
     useEffect(() => {
-        updateList();
+      updateList();
     }, [size])
 
     const updateList = () => {
-        console.log("updating list");
-        const randomArr = Array.from({ length: size }, () => Math.floor(Math.random() * 100));
-        console.log("App -> size", size);
-        console.log("updaateList -> randomArr", randomArr);
-        setArr(randomArr);
+      console.log("updating list");
+      const randomArr = Array.from({ length: size }, () => Math.floor(Math.random() * 500));
+      console.log("App -> size", size);
+      console.log("updaateList -> randomArr", randomArr);
+      setArr(randomArr);
     }
   
     const rangeChange = (event, range) => {

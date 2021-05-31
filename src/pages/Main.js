@@ -12,7 +12,7 @@ export default function Main({data}) {
 }
 
 const Bar = styled.div`
-    width: 3%;
+    width: 5px;
     height: ${(props) => props.height};
     background-color: ${(props) => props.color || '#04A9E0'};
     margin-right: 2px;
@@ -20,9 +20,9 @@ const Bar = styled.div`
 
 const Container = styled.div`
     display: flex;
-    width: 100%;
     flex-direction: row;
-    border: 1px solid red;
+    justify-content: center;
+    width: 100%;
     padding-left: 25px;
     padding-right: 25px;
 

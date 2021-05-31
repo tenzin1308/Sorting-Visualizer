@@ -47,7 +47,7 @@ export default function Header({rangeChange}) {
                     <Slider
                         onChange={rangeChange}
                         min={5}
-                        max={500}
+                        max={100}
                         aria-labelledby="discrete-slider-always" />
                 </ThemeProvider>
             </RangeWrapper>
