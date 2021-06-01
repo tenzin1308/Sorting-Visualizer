@@ -9,7 +9,7 @@ import { Button, Wrapper, SortWrapper, RangeWrapper } from './header.style';
 
 
 
-export default function Header({rangeChange}) {
+export default function Header({rangeChange, updateList}) {
 
     
 
@@ -33,7 +33,7 @@ export default function Header({rangeChange}) {
 
     return (
         <Wrapper>
-            <Button onClick={() => console.log("Clicked")}>
+            <Button onClick={updateList}>
                 Generate New Array
             </Button>
             
@@ -52,6 +52,9 @@ export default function Header({rangeChange}) {
                 </ThemeProvider>
             </RangeWrapper>
             <SortWrapper>
+                <Button disable>
+                    Sorting:
+                </Button>
                 <Button onClick={() => console.log("Clicked")}>
                     Merge
                 </Button>

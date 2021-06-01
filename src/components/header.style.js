@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
 
 export const SortWrapper = styled.div`
     display: flex;
-    width: 300px;
+    width: 500px;
     flex-direction: row;
     align-contain: center;
     justify-content: space-evenly;

@@ -28,7 +28,7 @@ function App() {
     };
   return (
     <div className="App">
-      <Header rangeChange={rangeChange}/>
+      <Header rangeChange={rangeChange} updateList={updateList}/>
       <Main data={arr} />
     </div>
   );
