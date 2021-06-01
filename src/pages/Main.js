@@ -3,13 +3,19 @@ import styled from 'styled-components';
 
 import { Button } from '../components/header.style';
 
-export default function Main({ data }) {
+export default function Main({ currentIndex, nextIndex, data }) {
     const width = 300 / data.length;
     return (
         <Container>
             <BlocksContainer>
-                {data.map(size => (
-                    <Bar height={`${size}px`} width={`${width}px`}>
+                {data.map((size, i) => (
+                    <Bar
+                        height={`${size}px`}
+                        width={`${width}px`}
+                        key={i}
+                        active={currentIndex === i}
+                        style={nextIndex === i ? {backgroundColor: 'green'} : null}
+                    >
                         {data.length < 10 && <Button disable>{size}</Button>}
                     </Bar>
                 ))}
@@ -19,7 +25,7 @@ export default function Main({ data }) {
                 <Button disable>Made by Tenzin Tashi</Button>
             </Step>
         </Container>
-    );
+    );  
 }
 
 const Bar = styled.div`
@@ -28,8 +34,9 @@ const Bar = styled.div`
     justify-content: center;
     width: ${(props) => props.width};
     height: ${(props) => props.height};
-    background-color: ${(props) => props.color || '#04A9E0'};
+    background-color: ${(props) => props.active ? "#B50002" : '#04A9E0'};
     margin-right: 2px;
+    ${ props => props.style };
 `;
 
 const BlocksContainer = styled.div`

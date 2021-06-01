@@ -9,7 +9,7 @@ import { Button, Wrapper, SortWrapper, RangeWrapper } from './header.style';
 
 
 
-export default function Header({rangeChange, updateList}) {
+export default function Header({bubbleOnClick, rangeChange, updateList}) {
 
     
 
@@ -64,7 +64,7 @@ export default function Header({rangeChange, updateList}) {
                 <Button onClick={() => console.log("Clicked")}>
                     Heap
                 </Button>
-                <Button onClick={() => console.log("Clicked")}>
+                <Button onClick={bubbleOnClick}>
                     Bubble
                 </Button>
             </SortWrapper>
