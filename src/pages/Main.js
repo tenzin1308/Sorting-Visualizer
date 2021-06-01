@@ -14,7 +14,7 @@ export default function Main({ currentIndex, nextIndex, data }) {
                         width={`${width}px`}
                         key={i}
                         active={currentIndex === i}
-                        style={nextIndex === i ? {backgroundColor: 'green'} : null}
+                        style={nextIndex >= i ? {backgroundColor: 'green'} : null}
                     >
                         {data.length < 10 && <Button disable>{size}</Button>}
                     </Bar>
