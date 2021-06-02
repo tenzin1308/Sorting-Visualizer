@@ -1,4 +1,4 @@
-import React, { useEffect, useState }  from 'react'
+import React from 'react'
 
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -9,7 +9,7 @@ import { Button, Wrapper, SortWrapper, RangeWrapper } from './header.style';
 
 
 
-export default function Header({bubbleOnClick, rangeChange, updateList}) {
+export default function Header({bubbleOnClick, mergeOnClick, rangeChange, updateList}) {
 
     
 
@@ -55,7 +55,7 @@ export default function Header({bubbleOnClick, rangeChange, updateList}) {
                 <Button disable>
                     Sorting:
                 </Button>
-                <Button onClick={() => console.log("Clicked")}>
+                <Button onClick={mergeOnClick}>
                     Merge
                 </Button>
                 <Button onClick={() => console.log("Clicked")}>

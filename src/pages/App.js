@@ -30,7 +30,7 @@ function App() {
       setSize(range);
   };
 
- 
+ // Bubble Sort
   const bubbleOnClick = async () => {
     const len = arr.length;
     for (let i = len - 1; i > 0; i--) {
@@ -44,20 +44,78 @@ function App() {
           setArr([...arr]);
         }
         }
-      await sleep(1000);
+      await sleep(500);
       
     }
     setCurrentIndex(null);
     setCurrentNext(null);
   }
 
+// Merge Sort
+  const merge = async (dupArr, l, mid, r) => {
+    let i = l, j = mid + 1
 
+    const arr = [] 
+
+    while((i <= mid) && (j <= r)){
+      if(dupArr[i] <= dupArr[j]){
+        arr.push(dupArr[i++])
+      } else {
+        arr.push(dupArr[j++])
+      }
+    }
+
+    while(i <= mid){
+      arr.push(dupArr[i++])
+    }
+
+    while(j <= r){
+      arr.push(dupArr[j++])
+    }
+    
+    for(i=l;i<=r;i++){
+      dupArr[i] = arr[i - l]
+      
+    }
+    
+    
+
+  }
+
+  const mergeSortSlicer = (dupArr, l, r) => {
+    if(l >= r) 
+        return 
+    
+    const mid = Math.floor((l + r) / 2)
+
+    mergeSortSlicer(dupArr, l, mid)
+    mergeSortSlicer(dupArr, mid + 1, r) 
+    
+    merge(dupArr, l, mid, r)
+    
+    
+  }
+
+  const mergeOnClick = async () => {
+    const dupArr = arr
+    mergeSortSlicer(dupArr, 0, dupArr.length - 1)
+    console.log("dupArr sorted", dupArr)
+    setArr([...dupArr])
+    await sleep(500)
+      
+  }
+    
+    
+    
+    
   return (
     <div className="App">
       <Header
         rangeChange={ rangeChange }
         updateList={ updateList }
-        bubbleOnClick={bubbleOnClick} />
+        bubbleOnClick={ bubbleOnClick } 
+        mergeOnClick={ mergeOnClick }
+      />
       <Main
         data={arr}
         currentIndex={currentIndex}
